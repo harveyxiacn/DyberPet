@@ -5,7 +5,7 @@
 
 <p align="center">
   <b>🐾 Desktop Pet System</b>: animations, interactions, progression, tasks, shop features, and mini pets that make your characters truly live on your desktop.<br>
-  <b>✨ AI Assistant</b>: LLM-powered pet interactions for companion chat, to-do management, and daily assistance.<br>
+  <b>✨ AI Assistant</b>: a built-in offline assistant answers pet, task, focus and coin questions without any model; an optional local model makes the answers more natural.<br>
   <b>🧩 MOD Ecosystem</b>: freely extend and create characters, items, sounds, and mini pets.
 </p>
 
@@ -35,7 +35,8 @@ English | <a href="README.md">简体中文</a>
   <a href="https://dyberpet.com/">Website</a> |
   <a href="https://github.com/ChaozhongLiu/DyberPet/releases/latest">Try Demo</a> |
   <a href="docs/collection.md">Browse Characters & MODs</a> |
-  <a href="docs/art_dev.md">Read MOD Dev Docs</a>
+  <a href="docs/art_dev.md">Read MOD Dev Docs</a> |
+  <a href="docs/llm.md">Local assistant</a>
 </p>
 
 <p align="center">
@@ -52,7 +53,8 @@ English | <a href="README.md">简体中文</a>
 
 - **Latest version: v0.11.5**, with a packaged Windows build available in [Release](https://github.com/ChaozhongLiu/DyberPet/releases/tag/v0.11.5).
 - The repository is still maintained primarily in Chinese, but feedback and bug reports are welcome.
-- The LLM-related module is still under active development and is not yet fully open-sourced.
+- This fork adds an open-source **local assistant** ([`DyberPet/LLM/`](DyberPet/LLM/)): it answers status, to-do, focus and coin questions with no model installed and can add, complete or delete tasks; an optional model server (Ollama, LM Studio, llama.cpp) can rephrase the answers. See [Local assistant](docs/llm.md).
+- The upstream cloud LLM module is still under development; this fork's offline assistant and local-model bridge are fully open source.
 - There are reposted mirrors on CSDN / GitCode that are not affiliated with this project. Please use this GitHub repository as the canonical source.
 
 Please leave a ⭐ **STAR** if you like the project and want to follow future updates.

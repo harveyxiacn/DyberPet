@@ -224,7 +224,7 @@ def init_settings():
 
     global gravity, fixdragspeedx, fixdragspeedy, tunable_scale, scale_dict, volume, \
            language_code, on_top_hint, default_pet, defaultAct, themeColor, minipet_scale, \
-           toaster_on, usertag_dict, auto_lock, bubble_on
+           toaster_on, usertag_dict, auto_lock, bubble_on, llm_enabled, llm_base_url, llm_model
 
     # check json file integrity
     try:
@@ -314,6 +314,12 @@ def init_settings():
         bubble_on = data_params.get('bubble_on', True)
         #=====================================================
 
+        # Optional local assistant model (off by default)
+        llm_enabled = bool(data_params.get('llm_enabled', False))
+        llm_base_url = str(data_params.get('llm_base_url', 'http://127.0.0.1:11434/v1') or '')
+        llm_model = str(data_params.get('llm_model', '') or '')
+        #=====================================================
+
     else:
         fixdragspeedx, fixdragspeedy = 1.0, 1.0
         gravity = 0.1
@@ -334,13 +340,16 @@ def init_settings():
         bubble_on = True
         usertag_dict = {}
         auto_lock = False
+        llm_enabled = False
+        llm_base_url = 'http://127.0.0.1:11434/v1'
+        llm_model = ''
     check_locale()
     save_settings()
 
 def save_settings():
     global file_path, set_fall, gravity, fixdragspeedx, fixdragspeedy, scale_dict, volume, \
            language_code, on_top_hint, default_pet, defaultAct, themeColor, minipet_scale, \
-           toaster_on, usertag_dict, auto_lock, bubble_on
+           toaster_on, usertag_dict, auto_lock, bubble_on, llm_enabled, llm_base_url, llm_model
 
     data_js = {'gravity':gravity,
                'set_fall': set_fall,
@@ -357,7 +366,10 @@ def save_settings():
                'defaultAct':defaultAct,
                'language_code':language_code,
                'themeColor':themeColor,
-               'auto_lock':auto_lock
+               'auto_lock':auto_lock,
+               'llm_enabled':llm_enabled,
+               'llm_base_url':llm_base_url,
+               'llm_model':llm_model
                }
 
     with open(file_path, 'w', encoding='utf-8') as f:

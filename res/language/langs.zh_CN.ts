@@ -658,6 +658,11 @@ For most of time, App can import the MOD for you automatically. But in any case 
         <translation>角色面板</translation>
     </message>
     <message>
+        <location filename="../../DyberPet/DyberPet.py" line="1058"/>
+        <source>AI Assistant</source>
+        <translation>AI 助手</translation>
+    </message>
+    <message>
         <location filename="../../DyberPet/DyberPet.py" line="1158"/>
         <source>Exit</source>
         <translation>退出</translation>
@@ -2420,6 +2425,188 @@ For most of time, App can import the pet for you automatically. But in any case 
     <message>
         <source>USERTAG You should be focusing on your work</source>
         <translation>USERTAG 你现在应该专注在任务上</translation>
+    </message>
+</context>
+<context>
+    <name>AssistantWindow</name>
+    <message>
+        <source>AI Assistant</source>
+        <translation>AI 助手</translation>
+    </message>
+    <message>
+        <source>Pet Assistant</source>
+        <translation>宠物助手</translation>
+    </message>
+    <message>
+        <source>Built-in answers</source>
+        <translation>内置回答</translation>
+    </message>
+    <message>
+        <source>Clear</source>
+        <translation>清空</translation>
+    </message>
+    <message>
+        <source>Send</source>
+        <translation>发送</translation>
+    </message>
+    <message>
+        <source>Settings</source>
+        <translation>设置</translation>
+    </message>
+    <message>
+        <source>Assistant settings</source>
+        <translation>助手设置</translation>
+    </message>
+    <message>
+        <source>Settings could not be saved.</source>
+        <translation>设置无法保存。</translation>
+    </message>
+    <message>
+        <source>Tasks</source>
+        <translation>任务</translation>
+    </message>
+    <message>
+        <source>Progress</source>
+        <translation>进度</translation>
+    </message>
+    <message>
+        <source>Pet</source>
+        <translation>宠物</translation>
+    </message>
+    <message>
+        <source>Ask about tasks, focus, coins, or the pet…</source>
+        <translation>询问任务、专注、金币或宠物的情况…</translation>
+    </message>
+    <message>
+        <source>Built-in answers stay on this device. A local model is optional and only reached through a loopback address.</source>
+        <translation>内置回答只在本机生成。本地模型是可选项，并且只会通过回环地址访问。</translation>
+    </message>
+    <message>
+        <source>You</source>
+        <translation>你</translation>
+    </message>
+    <message>
+        <source>Asking %s…</source>
+        <translation>正在询问 %s…</translation>
+    </message>
+    <message>
+        <source>Local · %s</source>
+        <translation>本地 · %s</translation>
+    </message>
+    <message>
+        <source>server not running</source>
+        <translation>服务未启动</translation>
+    </message>
+    <message>
+        <source>server refused the request</source>
+        <translation>服务拒绝了请求</translation>
+    </message>
+    <message>
+        <source>the model returned nothing</source>
+        <translation>模型没有返回内容</translation>
+    </message>
+    <message>
+        <source>not an OpenAI-compatible response</source>
+        <translation>不是 OpenAI 兼容的响应</translation>
+    </message>
+    <message>
+        <source>invalid endpoint</source>
+        <translation>地址无效</translation>
+    </message>
+    <message>
+        <source>only a loopback address is allowed</source>
+        <translation>只允许使用回环地址</translation>
+    </message>
+    <message>
+        <source>invalid input</source>
+        <translation>输入无效</translation>
+    </message>
+    <message>
+        <source>the response was too large</source>
+        <translation>响应内容过大</translation>
+    </message>
+    <message>
+        <source>local model failed</source>
+        <translation>本地模型调用失败</translation>
+    </message>
+</context>
+<context>
+    <name>LLMSettingsDialog</name>
+    <message>
+        <source>Assistant settings</source>
+        <translation>助手设置</translation>
+    </message>
+    <message>
+        <source>The assistant answers from the pet&apos;s own data without any model. Connecting a local model lets it phrase those answers more naturally and handle open questions.</source>
+        <translation>助手无需模型即可根据宠物自身的数据回答。连接本地模型后，它可以把这些回答表达得更自然，并处理开放式问题。</translation>
+    </message>
+    <message>
+        <source>Use a local model when one is available</source>
+        <translation>有可用本地模型时使用</translation>
+    </message>
+    <message>
+        <source>Custom</source>
+        <translation>自定义</translation>
+    </message>
+    <message>
+        <source>Server</source>
+        <translation>服务</translation>
+    </message>
+    <message>
+        <source>Endpoint</source>
+        <translation>地址</translation>
+    </message>
+    <message>
+        <source>Check</source>
+        <translation>检查</translation>
+    </message>
+    <message>
+        <source>Model</source>
+        <translation>模型</translation>
+    </message>
+    <message>
+        <source>Only localhost addresses are accepted. The model server must expose an OpenAI-compatible /v1/chat/completions endpoint. No API key is sent.</source>
+        <translation>仅接受 localhost 地址。模型服务需要提供 OpenAI 兼容的 /v1/chat/completions 接口。不会发送 API 密钥。</translation>
+    </message>
+    <message>
+        <source>Using built-in answers only.</source>
+        <translation>仅使用内置回答。</translation>
+    </message>
+    <message>
+        <source>Enter an endpoint first.</source>
+        <translation>请先填写地址。</translation>
+    </message>
+    <message>
+        <source>Nothing is listening there. Start the server first.</source>
+        <translation>该地址没有服务在监听，请先启动模型服务。</translation>
+    </message>
+    <message>
+        <source>The server refused the request.</source>
+        <translation>服务拒绝了请求。</translation>
+    </message>
+    <message>
+        <source>That address is not a valid loopback endpoint.</source>
+        <translation>该地址不是有效的回环地址。</translation>
+    </message>
+    <message>
+        <source>Could not reach the server.</source>
+        <translation>无法连接到服务。</translation>
+    </message>
+    <message>
+        <source>Connected, but no models are installed yet. Pull one in the server.</source>
+        <translation>已连接，但尚未安装模型。请先在服务中下载一个模型。</translation>
+    </message>
+    <message>
+        <source>Connected. Found %d model(s).</source>
+        <translation>已连接，找到 %d 个模型。</translation>
+    </message>
+    <message>
+        <source>Use a localhost address such as http://127.0.0.1:11434/v1.</source>
+        <translation>请使用类似 http://127.0.0.1:11434/v1 的 localhost 地址。</translation>
+    </message>
+    <message>
+        <source>Choose a model, or use Check to list the installed ones.</source>
+        <translation>请选择模型，或点击“检查”列出已安装的模型。</translation>
     </message>
 </context>
 </TS>

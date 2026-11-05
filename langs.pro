@@ -19,6 +19,8 @@ SOURCES += DyberPet/DyberSettings/DyberControlPanel.py \
         DyberPet/Dashboard/statusUI.py \
         DyberPet/Dashboard/taskUI.py \
         DyberPet/Dashboard/animDesignUI.py \
+        DyberPet/LLM/chat_window.py \
+        DyberPet/LLM/settings_dialog.py \
 
 
 

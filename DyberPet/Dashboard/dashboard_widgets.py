@@ -3284,6 +3284,34 @@ class TaskPanel(CardWidget):
     def __connectSignalToSlot(self):
         self.emptyCard.new_task.connect(self.addTodoCard)
 
+    # -- calls from the assistant -------------------------------------------
+    # These reuse the panel's own code paths so the cards, rewards and the
+    # saved task data stay in step with a click in the dashboard.
+
+    def add_task_external(self, task_text: str) -> str:
+        task_id = str(uuid.uuid4())
+        settings.task_data.taskData['tasks_todo'][task_id] = task_text
+        settings.task_data.save_data()
+        self.addTodoCard(task_text, task_id)
+        return task_id
+
+    def complete_task_external(self, task_id: str) -> int:
+        if task_id not in settings.task_data.taskData['tasks_todo']:
+            return 0
+        self._onTaskCompleted(task_id)
+        reward = int(settings.SINGLETASK_REWARD)
+        if settings.task_data.taskData['n_tasks'] % 5 == 0:
+            reward += int(settings.FIVETASK_REWARD)
+        return reward
+
+    def delete_task_external(self, task_id: str, done: bool = False):
+        bucket = 'tasks_done' if done else 'tasks_todo'
+        task_text = settings.task_data.taskData[bucket].get(task_id)
+        if task_text is None:
+            return None
+        self._onTaskDeleted(task_id, done)
+        return str(task_text)
+
 
     def addTodoCard(self, task_text, task_id=None):
         if not task_id:
@@ -3321,9 +3349,10 @@ class TaskPanel(CardWidget):
         settings.task_data.save_data()
 
         # move widget from todo to done
-        card = self.taskCards[task_id]
-        card.setParent(None)
-        self.verticalLayout_2.insertWidget(2, card)
+        card = self.taskCards.get(task_id)
+        if card is not None:
+            card.setParent(None)
+            self.verticalLayout_2.insertWidget(2, card)
 
         # update UI
         self.progressLabel_2.setText(str(settings.task_data.taskData['n_tasks']))
@@ -3343,9 +3372,10 @@ class TaskPanel(CardWidget):
         settings.task_data.save_data()
 
         # move widget from todo to done
-        card = self.taskCards.pop(task_id)
-        card.setParent(None)
-        card.deleteLater()
+        card = self.taskCards.pop(task_id, None)
+        if card is not None:
+            card.setParent(None)
+            card.deleteLater()
         self.adjustSize()
 
     def getReward(self):

@@ -15,6 +15,7 @@ from PySide6.QtCore import Qt, QLocale, QTimer, QDateTime, QDate, Signal, QTime
 from qfluentwidgets import  FluentTranslator, setThemeColor
 from DyberPet.DyberSettings.DyberControlPanel import ControlMainWindow
 from DyberPet.Dashboard.DashboardUI import DashboardMainWindow
+from DyberPet.LLM.chat_window import AssistantWindow
 
 try:
     size_factor = 1 #ctypes.windll.shcore.GetScaleFactorForDevice(0) / 100
@@ -74,6 +75,9 @@ class DyberPetApp(QApplication):
         # Dashboard
         self.board = DashboardMainWindow()
 
+        # Assistant (built-in answers; optional local model)
+        self.assistant = AssistantWindow(task_panel=self.board.taskInterface.taskPanel)
+
         # Midnight Timer
         self.current_date = QDate.currentDate()
         self.set_midnight_timer()
@@ -111,6 +115,7 @@ class DyberPetApp(QApplication):
 
         # Dashboard - others
         self.p.show_dashboard.connect(self.board.show_window)
+        self.p.show_assistant.connect(self.assistant.show_window)
         self.note.noteToLog.connect(self.board.statusInterface._addNote)
         self.p.hp_updated.connect(self.board.statusInterface.StatusCard._updateHP)
         self.p.fv_updated.connect(self.board.statusInterface.StatusCard._updateFV)

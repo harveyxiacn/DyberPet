@@ -5,7 +5,7 @@
 
 <p align="center">
   <b>🐾 桌宠系统</b>：动画、交互、养成、任务、商店与迷你宠物，让角色真正住进桌面。<br>
-  <b>✨ AI 助手</b>：桌宠系统接入大模型，陪伴聊天、管理待办、协助日常。<br>
+  <b>✨ AI 助手</b>：内置离线助手无需模型即可回答状态、管理待办；可选接入本机小模型，让回答更自然。<br>
   <b>🧩 MOD 生态</b>：角色、道具、音效、迷你宠物均可自由扩展与创作。
 </p>
 
@@ -35,7 +35,8 @@
   <a href="https://dyberpet.com/">网站主页</a> |
   <a href="https://github.com/ChaozhongLiu/DyberPet/releases/latest">快速体验</a> |
   <a href="docs/collection.md">浏览角色与模组</a> |
-  <a href="docs/art_dev.md">查看模组开发文档</a>
+  <a href="docs/art_dev.md">查看模组开发文档</a> |
+  <a href="docs/llm.md">本地 AI 助手</a>
 </p>
 
 <p align="center">
@@ -52,7 +53,8 @@
 
 - **最新版本：v0.11.5**，Windows 版本已打包发布到 [Release](https://github.com/ChaozhongLiu/DyberPet/releases/tag/v0.11.5)。
 - 当前仓库以中文内容为主，欢迎通过 Issue 反馈使用问题与建议。
-- LLM 模块仍在持续开发中，相关能力暂未完全开源。
+- 本分支新增开源**本地助手**（[`DyberPet/LLM/`](DyberPet/LLM/)）：不装模型也能回答状态、待办、进度、金币等问题，并可直接增删/完成待办；可选连接 Ollama、LM Studio 或 llama.cpp，详见 [本地 AI 助手](docs/llm.md)。
+- 上游的云端 LLM 模块仍在开发中；本分支的离线助手与本地模型桥接代码已完整开源。
 - CSDN / GitCode 上存在与本项目无关的搬运镜像，请以当前 GitHub 仓库为准。
 
 如果你喜欢这个项目，请点一个 ⭐ **STAR**，这会直接帮助更多人看到呆啵宠物。
